@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian>
+
+    <extension qualifier="graphene">
+        <property name="url">${graphene.url}</property>
+    </extension>
+
+    <extension qualifier="webdriver">
+        <property name="browser">${webdriver.browser}</property>
+        <!--<property name="browserCapabilities">${webdriver.browsercapabilities}</property>-->
+        <!--<property name="remoteAddress">${webdriver.remoteaddress}</property>-->
+        <!--<property name="remoteReusable">${webdriver.remoteReusable}</property>-->
+    </extension>
+
+</arquillian>

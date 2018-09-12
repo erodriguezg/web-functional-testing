@@ -1,125 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>com.github.erodriguezg</artifactId>
-    <groupId>web-functional-testing</groupId>
-    <version>1.0.0</version>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>com.github.erodriguezg</artifactId>
+	<groupId>web-functional-testing</groupId>
+	<version>1.0.0</version>
 
-    <properties>
-        <graphene.url>http://www.google.cl</graphene.url>
-        <webdriver.browser>phantomjs</webdriver.browser>
-        <webdriver.browsercapabilities></webdriver.browsercapabilities>
-        <webdriver.remoteaddress></webdriver.remoteaddress>
-        <webdriver.remoteReusable></webdriver.remoteReusable>
-    </properties>
+	<profiles>
+		<profile>
+			<id>dev-firefox</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<graphene.url>http://www.google.cl</graphene.url>
+				<webdriver.browser>firefox</webdriver.browser>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev-phantomjs</id>
+			<properties>
+				<graphene.url>http://www.google.cl</graphene.url>
+				<webdriver.browser>phantomjs</webdriver.browser>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev-chrome</id>
+			<properties>
+				<graphene.url>http://www.google.cl</graphene.url>
+				<webdriver.browser>chrome</webdriver.browser>
+			</properties>
+		</profile>
+		<profile>
+			<id>jenkins</id>
+			<properties>
+				<graphene.url>http://www.google.cl</graphene.url>
+				<webdriver.browser>phantomjs</webdriver.browser>
+			</properties>
+		</profile>
+	</profiles>
 
-    <dependencies>
+	<dependencies>
 
-        <!-- ARQUILLIAN GRAPEHENE 2 -->
+		<!-- ARQUILLIAN GRAPEHENE 2 -->
 
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.8.1</version>
-        </dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.8.1</version>
+		</dependency>
 
-        <dependency>
-            <groupId>org.jboss.arquillian.junit</groupId>
-            <artifactId>arquillian-junit-standalone</artifactId>
-            <version>1.2.0.Final</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-standalone</artifactId>
+			<version>1.2.0.Final</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.jboss.arquillian.graphene</groupId>
-            <artifactId>graphene-webdriver</artifactId>
-            <version>2.3.2</version>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.graphene</groupId>
+			<artifactId>graphene-webdriver</artifactId>
+			<version>2.3.2</version>
+			<type>pom</type>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.jboss.arquillian.graphene</groupId>
-            <artifactId>graphene-webdriver-impl</artifactId>
-            <version>2.3.2</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.graphene</groupId>
+			<artifactId>graphene-webdriver-impl</artifactId>
+			<version>2.3.2</version>
+			<scope>test</scope>
+		</dependency>
 
-        <!-- PHANTOMJS DRIVER-->
+		<!-- PHANTOMJS DRIVER -->
 
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>phantomjsdriver</artifactId>
-            <version>1.4.4</version>
-        </dependency>
+		<dependency>
+			<groupId>com.codeborne</groupId>
+			<artifactId>phantomjsdriver</artifactId>
+			<version>1.4.4</version>
+		</dependency>
 
-        <!-- otros -->
+		<!-- otros -->
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.25</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.9.0</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.9.0</version>
+			<scope>test</scope>
+		</dependency>
 
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 
-    </dependencies>
+	</dependencies>
 
-    <build>
-        <filters>
-            <filter>src/test/resources/arquillian.xml</filter>
-        </filters>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>test-resources</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>testResources</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<filters>
+			<filter>src/test/resources/arquillian.xml</filter>
+		</filters>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>test-resources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>testResources</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
 </project>

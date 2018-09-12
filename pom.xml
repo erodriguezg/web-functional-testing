@@ -15,28 +15,28 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<graphene.url>http://www.google.cl</graphene.url>
+				<graphene.url>http://www.bcentral.cl/</graphene.url>
 				<webdriver.browser>firefox</webdriver.browser>
 			</properties>
 		</profile>
 		<profile>
 			<id>dev-phantomjs</id>
 			<properties>
-				<graphene.url>http://www.google.cl</graphene.url>
+				<graphene.url>http://www.bcentral.cl/</graphene.url>
 				<webdriver.browser>phantomjs</webdriver.browser>
 			</properties>
 		</profile>
 		<profile>
 			<id>dev-chrome</id>
 			<properties>
-				<graphene.url>http://www.google.cl</graphene.url>
+				<graphene.url>http://www.bcentral.cl/</graphene.url>
 				<webdriver.browser>chrome</webdriver.browser>
 			</properties>
 		</profile>
 		<profile>
 			<id>jenkins</id>
 			<properties>
-				<graphene.url>http://www.google.cl</graphene.url>
+				<graphene.url>http://www.bcentral.cl/</graphene.url>
 				<webdriver.browser>phantomjs</webdriver.browser>
 			</properties>
 		</profile>
